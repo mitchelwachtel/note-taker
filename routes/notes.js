@@ -46,6 +46,13 @@ notes.post("/", (req, res) => {
             : console.info("Successfully updated Notes!")
       );
     }
+    fs.readFile("./db/db.json", "utf8", (err, notes) => {
+      if (err) {
+        console.error(err);
+      } else {
+        res.json(JSON.parse(notes));
+      }
+    });
   });
 });
 
