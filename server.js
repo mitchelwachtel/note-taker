@@ -9,6 +9,8 @@ const app = express();
 // MIDDLEWEAR
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+// '/api' is sent to the index.js in the routes folder 
 app.use("/api", api);
 
 app.use(express.static("public"));
