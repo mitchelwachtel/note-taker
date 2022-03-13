@@ -1,4 +1,4 @@
-# note-taker
+# Note Taker
 ## Mitchel Wachtel - mitchel.wachtel@gmail.com
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -31,14 +31,15 @@ Technologies used: node.js, express js, npm, dependencies: 'fs', Heroku for depl
 
 ---
 ### Usage
-The application can be found HERE deployed on Heroku. To run on your own server, first install dependencies with `npm i` and then you can start the server with `npm start`.
+The application can be found *[here](https://gentle-bayou-36473.herokuapp.com/)* deployed on Heroku. To run on your own server, first install dependencies with `npm i` and then you can start the server with `npm start`.
 
-<!-- 
-![Tests pass](./assets/images/tests.png)
+Heroku Deployment: https://gentle-bayou-36473.herokuapp.com/
 
-![Input examples](./assets/images/inputs.png)
+![New Note](./assets/images/newNote.png)
 
-![generated & deployed HTML](./assets/images/generatedHTML.png) -->
+![Before Delete](./assets/images/beforeDelete.png)
+
+![After Delete](./assets/images/afterDelete.png)
 
 ---
 ---
