@@ -1,10 +1,10 @@
 const notes = require("express").Router();
 const fs = require("fs");
+const addNote = require('../helpers/fsFunctions');
 
 // GET Route for retrieving notes info
 notes.get("/", (req, res) => {
   // TODO: pass through db.json and send it!
-  console.info("party");
   fs.readFile("./db/db.json", "utf8", (err, notes) => {
     if (err) {
       console.error(err);
@@ -25,34 +25,14 @@ notes.post("/", (req, res) => {
     id: Date.now(),
   };
 
-  // Obtain existing reviews
-  fs.readFile("./db/db.json", "utf8", (err, data) => {
+  addNote(newNote);
+  // send the file of notes to public/js/index.js
+  fs.readFile("./db/db.json", "utf8", (err, notes) => {
     if (err) {
       console.error(err);
     } else {
-      // Convert string into JSON object
-      const parsedNotes = JSON.parse(data);
-
-      // Add a new review
-      parsedNotes.push(newNote);
-
-      // Write updated reviews back to the file
-      fs.writeFile(
-        "./db/db.json",
-        JSON.stringify(parsedNotes, null, 4),
-        (writeErr) =>
-          writeErr
-            ? console.error(writeErr)
-            : console.info("Successfully updated Notes!")
-      );
+      res.json(JSON.parse(notes));
     }
-    fs.readFile("./db/db.json", "utf8", (err, notes) => {
-      if (err) {
-        console.error(err);
-      } else {
-        res.json(JSON.parse(notes));
-      }
-    });
   });
 });
 
