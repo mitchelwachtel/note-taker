@@ -32,7 +32,7 @@ notes.post("/", (req, res) => {
   // It adds our new note to the array of objects from db.json and then resaves that array to the server.
   addNote(newNote);
 
-  // Here we display the contents of db.json after the note has been added
+  // Here we return the contents of db.json to be displayed after the note has been added
   fs.readFile("./db/db.json", "utf8", (err, notes) => {
     if (err) {
       console.error(err);
@@ -50,7 +50,7 @@ notes.delete("/:id", (req, res) => {
 // Then it resaves the array to the server
   deleteNote(id);
 
-  // Here we display the contents of db.json after the note has been removed
+  // Here we return the contents of db.json to be displayed after the note has been removed
   fs.readFile("./db/db.json", "utf8", (err, notes) => {
     if (err) {
       console.error(err);

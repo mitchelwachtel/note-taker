@@ -1,8 +1,7 @@
 const fs = require("fs");
 
-
-
-const fileIt = (parsedNotes) => {
+// saveObjArray() is used whenever the object array has been modified and the needs to be saved to the server.
+const saveObjArray = (parsedNotes) => {
   fs.writeFile(
   "./db/db.json",
   JSON.stringify(parsedNotes, null, 4),
@@ -26,7 +25,7 @@ const addNote = (newNote) => {
       parsedNotes.push(newNote);
 
       // Put array of notes back in file on server
-      fileIt(parsedNotes);
+      saveObjArray(parsedNotes);
     }
   });
 };
@@ -48,7 +47,7 @@ const deleteNote = (id) => {
       }
 
       // Put array of notes back in file on server
-      fileIt(parsedNotes);
+      saveObjArray(parsedNotes);
     }
   });
 };
