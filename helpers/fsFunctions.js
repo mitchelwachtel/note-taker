@@ -1,6 +1,18 @@
 const fs = require("fs");
 
 
+
+const fileIt = (parsedNotes) => {
+  fs.writeFile(
+  "./db/db.json",
+  JSON.stringify(parsedNotes, null, 4),
+  (writeErr) =>
+    writeErr
+      ? console.error(writeErr)
+      : console.info("Successfully updated Notes!")
+);
+}
+
 const addNote = (newNote) => {
   // Pull out previous notes
   fs.readFile("./db/db.json", "utf8", (err, data) => {
@@ -13,15 +25,8 @@ const addNote = (newNote) => {
       // Add a new note to array
       parsedNotes.push(newNote);
 
-      // Put array of notes back in file
-      fs.writeFile(
-        "./db/db.json",
-        JSON.stringify(parsedNotes, null, 4),
-        (writeErr) =>
-          writeErr
-            ? console.error(writeErr)
-            : console.info("Successfully updated Notes!")
-      );
+      // Put array of notes back in file on server
+      fileIt(parsedNotes);
     }
   });
 };
@@ -42,15 +47,8 @@ const deleteNote = (id) => {
         }
       }
 
-      // Put array of notes back in file
-      fs.writeFile(
-        "./db/db.json",
-        JSON.stringify(parsedNotes, null, 4),
-        (writeErr) =>
-          writeErr
-            ? console.error(writeErr)
-            : console.info("Successfully updated Notes!")
-      );
+      // Put array of notes back in file on server
+      fileIt(parsedNotes);
     }
   });
 };
