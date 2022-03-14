@@ -1,5 +1,6 @@
 const fs = require("fs");
 
+
 const addNote = (newNote) => {
   // Pull out previous notes
   fs.readFile("./db/db.json", "utf8", (err, data) => {

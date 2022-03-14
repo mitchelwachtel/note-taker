@@ -5,7 +5,7 @@
 
 ---
 ### Description
-This app is to be used to for Users to save notes for themselves. Notes are stored on the server so that upon loading of the page or saving a new note, the past notes will appear. Additionally, clicking the delete icon will remove the selected note from the screen and server.
+This app is to be used to for users to save notes for themselves. Notes are stored on the server so that upon loading of the page or saving a new note, the new and past notes will appear. Additionally, clicking the delete icon will remove the selected note from the screen and server.
 
 ---
 ### Table of contents
